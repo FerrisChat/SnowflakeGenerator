@@ -8,7 +8,7 @@
 //!
 //! # Changes
 //! * unsigned 128 bit integers are used
-//! * atomic 16 bit counters are used to allow up to 16,384 IDs to be generated every millisecond
+//! * atomic 16 bit counters are used to allow up to 65,536 IDs to be generated every millisecond
 //! * response time must be less than 5 microseconds
 //!
 //! # Format
