@@ -110,17 +110,8 @@ mod tests {
 
     #[test]
     fn all_unequal_snowflakes() {
-        // this code would panic until the current Ferris time reaches 0
-        // since before that date this is designed exclusively for testing
-        // and never to be used in production
-        // to solve that we have a different way of doing things
-        let max = if get_epoch_time() == 0 {
-            u16::MAX as usize
-        } else {
-            1_000_000
-        };
         let mut seen = HashSet::with_capacity(1_000_000);
-        for _ in 1..max {
+        for _ in 1..1_000_000 {
             let sf = generate_snowflake::<0>(0, 0);
             assert!(
                 seen.insert(sf),
