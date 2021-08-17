@@ -103,7 +103,8 @@ mod tests {
     fn unequal_snowflakes() {
         let snowflake_1 = generate_snowflake::<0>(0, u16::MAX);
         let snowflake_2 = generate_snowflake::<0>(0, u16::MAX);
-        println!("{:b}, {:b}", &snowflake_1, snowflake_2);
+        println!("{}, {}", snowflake_1, snowflake_2);
+        println!("{:b}, {:b}",snowflake_1, snowflake_2);
         assert_ne!(snowflake_1, snowflake_2);
     }
 
