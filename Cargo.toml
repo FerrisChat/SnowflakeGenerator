@@ -1,6 +1,6 @@
 [package]
 name = "ferrischat_snowflake_generator"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2018"
 description = "Library to generate guaranteed unique IDs for any purpose"
 license = "Unlicense"
