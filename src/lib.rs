@@ -2,10 +2,6 @@
 //!
 //! <https://github.com/twitter-archive/snowflake/tree/snowflake-2010>
 //!
-//! # Warnings
-//! * This crate will not generate unique identifiers before the start of the Ferris Epoch.
-//! Do not use it in production until 01/01/2022 00:00:00.0000+00:00.
-//!
 //! # Changes
 //! * unsigned 128 bit integers are used
 //! * atomic 16 bit counters are used to allow up to 65,536 IDs to be generated every millisecond
@@ -41,9 +37,6 @@ static mut LAST_TIME_CREATED: u128 = 0;
 
 /// Generates a snowflake from the current API version, the model type, and the node ID.
 ///
-/// Snowflakes are guaranteed (almost: see footnotes) to be globally unique,
-/// even if they were generated in the same millisecond.
-///
 /// # Panics
 /// Panics if the current time is behind the Unix Epoch.
 ///
@@ -52,10 +45,6 @@ static mut LAST_TIME_CREATED: u128 = 0;
 /// use ferrischat_snowflake_generator::generate_snowflake;
 /// assert_ne!(generate_snowflake::<0>(0, 0), generate_snowflake::<0>(0, 0));
 /// ```
-///
-/// # Footnotes
-/// Read the crate docs, and note that snowflakes are not unique before
-/// 01/01/2022 00:00:00.0000+00:00. Do not use this lib in production until then.
 #[inline]
 pub fn generate_snowflake<const API_VERSION: u8>(model_type: u8, node_id: u16) -> u128 {
     #[cfg(feature = "time-safety-checks")]
