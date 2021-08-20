@@ -2,13 +2,17 @@ This library generates snowflakes based off Twitter's snowflake format with some
 
 https://github.com/twitter-archive/snowflake/tree/snowflake-2010
 
+# Warnings
+* This crate will not generate unique identifiers before the start of the Ferris Epoch.
+Do not use it in production until 01/01/2022 00:00:00.0000+00:00.
+
 # Changes
 * unsigned 128 bit integers are used
 * atomic 16 bit counters are used to allow up to 65,536 IDs to be generated every millisecond
 * response time must be less than 5 microseconds
 
 # Format
-* Bits 0 to 63: milliseconds since the Ferris Epoch (01/01/2020 00:00:00.0000+00:00).
+* Bits 0 to 63: milliseconds since the Ferris Epoch (01/01/2022 00:00:00.0000+00:00).
 Range of around 600,000,000 years.
 * Bits 64 to 71: the type of model (i.e. user, channel, guild)
 * Bits 73 to 85: internal 16-bit atomic counter
