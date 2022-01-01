@@ -8,7 +8,7 @@
 //! * response time must be less than 5 microseconds
 //!
 //! # Format
-//! * Bits 0 to 63: milliseconds since the Ferris Epoch (01/01/2020 00:00:00.0000+00:00).
+//! * Bits 0 to 63: milliseconds since the Ferris Epoch (01/01/2022 00:00:00.0000+00:00).
 //! Range of around 600,000,000 years.
 //! * Bits 64 to 71: the type of model (i.e. user, channel, guild)
 //! * Bits 73 to 85: internal 16-bit atomic counter
@@ -29,7 +29,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 /// A internal atomic counter that helps guarantee snowflakes will be globally unique.
 static INTERNAL_COUNTER: AtomicU16 = AtomicU16::new(0);
 /// The start of the Ferris Epoch in milliseconds since the Unix Epoch
-pub const FERRIS_EPOCH: u128 = 1_577_836_800_000;
+pub const FERRIS_EPOCH: u128 = 1_640_995_200_000;
 
 #[cfg(feature = "time-safety-checks")]
 /// A static variable to store the timestamp of the last snowflake generated.
