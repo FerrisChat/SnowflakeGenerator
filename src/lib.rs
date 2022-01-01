@@ -29,7 +29,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 /// A internal atomic counter that helps guarantee snowflakes will be globally unique.
 static INTERNAL_COUNTER: AtomicU16 = AtomicU16::new(0);
 /// The start of the Ferris Epoch in milliseconds since the Unix Epoch
-pub const FERRIS_EPOCH: u128 = 1_641_016_800_000;
+pub const FERRIS_EPOCH: u128 = 1_640_995_200_000;
 
 #[cfg(feature = "time-safety-checks")]
 /// A static variable to store the timestamp of the last snowflake generated.
